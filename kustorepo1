@@ -1,0 +1,5 @@
+// retrieve NSG information
+Resources
+| where type =~ "microsoft.network/networksecuritygroups"
+| project name, resourceGroup, nic = (properties.networkInterfaces), subnet = (properties.subnets)
+| sort by name asc
